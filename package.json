@@ -1,0 +1,32 @@
+{
+  "name": "@edu-tosel/axios-handler",
+  "version": "0.0.1",
+  "description": "Make using axios simpler with TypeScript",
+  "scripts": {
+    "build-publish": "rimraf ./dist && tsc -p tsconfig.build.json --noEmit false",
+    "publish": "npm run build-publish && node setupPackage.js && cd dist && npm publish",
+    "test": "ts-node src/test.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/edu-tosel/axios-handler.git"
+  },
+  "keywords": [
+    "axios",
+    "typescript"
+  ],
+  "author": "International TOSEL Committee",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/edu-tosel/axios-handler/issues"
+  },
+  "homepage": "https://github.com/edu-tosel/axios-handler#readme",
+  "dependencies": {
+    "axios": "^1.6.8"
+  },
+  "devDependencies": {
+    "typescript": "^5.2.2",
+    "rimraf": "^5.0.5",
+    "@types/node": "^20.11.4"
+  }
+}
