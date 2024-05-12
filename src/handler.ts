@@ -5,9 +5,9 @@ function http(baseURL?: string, options?: Options): Http {
   return {
     get: applicationJson(baseURL, options).get,
     post: applicationJson(baseURL, options).post,
-    put: applicationJson().put,
-    patch: applicationJson().patch,
-    delete: applicationJson().delete,
+    put: applicationJson(baseURL, options).put,
+    patch: applicationJson(baseURL, options).patch,
+    delete: applicationJson(baseURL, options).delete,
   };
 }
 
