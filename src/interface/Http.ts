@@ -8,33 +8,36 @@ interface Http {
     url: string,
     data?: REQ,
     config?: object
-  ) => Promise<RES>;
+  ) => Promise<AxiosResponse<RES>>;
   put: <REQ = any, RES = unknown>(
     url: string,
     data?: REQ,
     config?: object
-  ) => Promise<RES>;
+  ) => Promise<AxiosResponse<RES>>;
   patch: <REQ = any, RES = unknown>(
     url: string,
     data?: REQ,
     config?: object
-  ) => Promise<RES>;
-  delete: <RES = unknown>(url: string, data?: object) => Promise<RES>;
+  ) => Promise<AxiosResponse<RES>>;
+  delete: <RES = unknown>(
+    url: string,
+    data?: object
+  ) => Promise<AxiosResponse<RES>>;
   postFormData: <REQ = any, RES = unknown>(
     url: string,
     data?: REQ,
     config?: object
-  ) => Promise<RES>;
+  ) => Promise<AxiosResponse<RES>>;
   putFormData: <REQ = any, RES = unknown>(
     url: string,
     data?: REQ,
     config?: object
-  ) => Promise<RES>;
+  ) => Promise<AxiosResponse<RES>>;
   patchFormData: <REQ = any, RES = unknown>(
     url: string,
     data?: REQ,
     config?: object
-  ) => Promise<RES>;
+  ) => Promise<AxiosResponse<RES>>;
 }
 
 export type { Http };

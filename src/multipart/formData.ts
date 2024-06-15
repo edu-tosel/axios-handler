@@ -19,27 +19,27 @@ function multipartFormData(baseURL = "/api", options?: Options) {
       data?: Request,
       config?: AxiosRequestConfig
     ) => {
-      return instance
-        .post<Response>(url, data, { ...defaultConfig, ...config })
-        .then((res) => res.data);
+      return instance.post<Response>(url, data, {
+        ...defaultConfig,
+        ...config,
+      });
     },
     put: <Request = any, Response = unknown>(
       url: string,
       data?: Request,
       config?: AxiosRequestConfig
     ) => {
-      return instance
-        .put<Response>(url, data, { ...defaultConfig, ...config })
-        .then((res) => res.data);
+      return instance.put<Response>(url, data, { ...defaultConfig, ...config });
     },
     patch: <Request = any, Response = unknown>(
       url: string,
       data?: Request,
       config?: AxiosRequestConfig
     ) => {
-      return instance
-        .patch<Response>(url, data, { ...defaultConfig, ...config })
-        .then((res) => res.data);
+      return instance.patch<Response>(url, data, {
+        ...defaultConfig,
+        ...config,
+      });
     },
   };
 }

@@ -18,24 +18,16 @@ function applicationJson(baseURL = "/api", options?: Options) {
       return instance.get<RES>(url, { ...data, ...defaultConfig });
     },
     post: <REQ, RES>(url: string, data?: REQ, config?: AxiosRequestConfig) => {
-      return instance
-        .post<RES>(url, data, { ...defaultConfig, ...config })
-        .then((res) => res.data);
+      return instance.post<RES>(url, data, { ...defaultConfig, ...config });
     },
     put: <REQ, RES>(url: string, data?: REQ, config?: AxiosRequestConfig) => {
-      return instance
-        .put<RES>(url, data, { ...defaultConfig, ...config })
-        .then((res) => res.data);
+      return instance.put<RES>(url, data, { ...defaultConfig, ...config });
     },
     patch: <REQ, RES>(url: string, data?: REQ, config?: AxiosRequestConfig) => {
-      return instance
-        .patch<RES>(url, data, { ...defaultConfig, ...config })
-        .then((res) => res.data);
+      return instance.patch<RES>(url, data, { ...defaultConfig, ...config });
     },
     delete: <RES>(url: string, data?: object) => {
-      return instance
-        .delete<RES>(url, { ...data, ...defaultConfig })
-        .then((res) => res.data);
+      return instance.delete<RES>(url, { ...data, ...defaultConfig });
     },
   };
 }
