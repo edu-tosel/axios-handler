@@ -1,36 +1,36 @@
 interface Http {
-  get: <Response = unknown>(url: string, data?: object) => Promise<Response>;
-  post: <Request = any, Response = unknown>(
+  get: <RES = Response>(url: string, data?: object) => Promise<RES>;
+  post: <REQ = any, RES = Response>(
     url: string,
-    data?: Request,
+    data?: REQ,
     config?: object
-  ) => Promise<Response>;
-  put: <Request = any, Response = unknown>(
+  ) => Promise<RES>;
+  put: <REQ = any, RES = Response>(
     url: string,
-    data?: Request,
+    data?: REQ,
     config?: object
-  ) => Promise<Response>;
-  patch: <Request = any, Response = unknown>(
+  ) => Promise<RES>;
+  patch: <REQ = any, RES = Response>(
     url: string,
-    data?: Request,
+    data?: REQ,
     config?: object
-  ) => Promise<Response>;
-  delete: <Response = unknown>(url: string, data?: object) => Promise<Response>;
-  postFormData: <Request = any, Response = unknown>(
+  ) => Promise<RES>;
+  delete: <RES = Response>(url: string, data?: object) => Promise<RES>;
+  postFormData: <REQ = any, RES = Response>(
     url: string,
-    data?: Request,
+    data?: REQ,
     config?: object
-  ) => Promise<Response>;
-  putFormData: <Request = any, Response = unknown>(
+  ) => Promise<RES>;
+  putFormData: <REQ = any, RES = Response>(
     url: string,
-    data?: Request,
+    data?: REQ,
     config?: object
-  ) => Promise<Response>;
-  patchFormData: <Request = any, Response = unknown>(
+  ) => Promise<RES>;
+  patchFormData: <REQ = any, RES = Response>(
     url: string,
-    data?: Request,
+    data?: REQ,
     config?: object
-  ) => Promise<Response>;
+  ) => Promise<RES>;
 }
 
 export type { Http };

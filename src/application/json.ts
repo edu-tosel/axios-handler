@@ -14,41 +14,41 @@ function applicationJson(baseURL = "/api", options?: Options) {
   };
 
   return {
-    get: <Response = unknown>(url: string, data?: AxiosRequestConfig) => {
+    get: <RES = Response>(url: string, data?: AxiosRequestConfig) => {
       return instance
-        .get<Response>(url, { ...data, ...defaultConfig })
+        .get<RES>(url, { ...data, ...defaultConfig })
         .then((res) => res.data);
     },
-    post: <Request = any, Response = unknown>(
+    post: <REQ = any, RES = Response>(
       url: string,
-      data?: Request,
+      data?: REQ,
       config?: AxiosRequestConfig
     ) => {
       return instance
-        .post<Response>(url, data, { ...defaultConfig, ...config })
+        .post<RES>(url, data, { ...defaultConfig, ...config })
         .then((res) => res.data);
     },
-    put: <Request = any, Response = unknown>(
+    put: <REQ = any, RES = Response>(
       url: string,
-      data?: Request,
+      data?: REQ,
       config?: AxiosRequestConfig
     ) => {
       return instance
-        .put<Response>(url, data, { ...defaultConfig, ...config })
+        .put<RES>(url, data, { ...defaultConfig, ...config })
         .then((res) => res.data);
     },
-    patch: <Request = any, Response = unknown>(
+    patch: <REQ = any, RES = Response>(
       url: string,
-      data?: Request,
+      data?: REQ,
       config?: AxiosRequestConfig
     ) => {
       return instance
-        .patch<Response>(url, data, { ...defaultConfig, ...config })
+        .patch<RES>(url, data, { ...defaultConfig, ...config })
         .then((res) => res.data);
     },
-    delete: <Response = unknown>(url: string, data?: object) => {
+    delete: <RES = Response>(url: string, data?: object) => {
       return instance
-        .delete<Response>(url, { ...data, ...defaultConfig })
+        .delete<RES>(url, { ...data, ...defaultConfig })
         .then((res) => res.data);
     },
   };
