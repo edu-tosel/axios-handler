@@ -14,39 +14,27 @@ function applicationJson(baseURL = "/api", options?: Options) {
   };
 
   return {
-    get: <RES = Response>(url: string, data?: AxiosRequestConfig) => {
+    get: <RES>(url: string, data?: AxiosRequestConfig) => {
       return instance
         .get<RES>(url, { ...data, ...defaultConfig })
         .then((res) => res.data);
     },
-    post: <REQ = any, RES = Response>(
-      url: string,
-      data?: REQ,
-      config?: AxiosRequestConfig
-    ) => {
+    post: <REQ, RES>(url: string, data?: REQ, config?: AxiosRequestConfig) => {
       return instance
         .post<RES>(url, data, { ...defaultConfig, ...config })
         .then((res) => res.data);
     },
-    put: <REQ = any, RES = Response>(
-      url: string,
-      data?: REQ,
-      config?: AxiosRequestConfig
-    ) => {
+    put: <REQ, RES>(url: string, data?: REQ, config?: AxiosRequestConfig) => {
       return instance
         .put<RES>(url, data, { ...defaultConfig, ...config })
         .then((res) => res.data);
     },
-    patch: <REQ = any, RES = Response>(
-      url: string,
-      data?: REQ,
-      config?: AxiosRequestConfig
-    ) => {
+    patch: <REQ, RES>(url: string, data?: REQ, config?: AxiosRequestConfig) => {
       return instance
         .patch<RES>(url, data, { ...defaultConfig, ...config })
         .then((res) => res.data);
     },
-    delete: <RES = Response>(url: string, data?: object) => {
+    delete: <RES>(url: string, data?: object) => {
       return instance
         .delete<RES>(url, { ...data, ...defaultConfig })
         .then((res) => res.data);
