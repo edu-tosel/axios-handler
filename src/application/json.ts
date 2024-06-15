@@ -1,4 +1,4 @@
-import { AxiosRequestConfig } from "axios";
+import { AxiosRequestConfig, isAxiosError } from "axios";
 import { axios } from "../instance";
 import { Options } from "../interface";
 
@@ -14,10 +14,8 @@ function applicationJson(baseURL = "/api", options?: Options) {
   };
 
   return {
-    get: <RES>(url: string, data?: AxiosRequestConfig) => {
-      return instance
-        .get<RES>(url, { ...data, ...defaultConfig })
-        .then((res) => res.data);
+    get: async <RES>(url: string, data?: AxiosRequestConfig) => {
+      return instance.get<RES>(url, { ...data, ...defaultConfig });
     },
     post: <REQ, RES>(url: string, data?: REQ, config?: AxiosRequestConfig) => {
       return instance

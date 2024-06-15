@@ -1,5 +1,9 @@
+import { AxiosResponse } from "axios";
 interface Http {
-  get: <RES = unknown>(url: string, data?: object) => Promise<RES>;
+  get: <RES = unknown>(
+    url: string,
+    data?: object
+  ) => Promise<AxiosResponse<RES>>;
   post: <REQ = any, RES = unknown>(
     url: string,
     data?: REQ,
