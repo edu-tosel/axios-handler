@@ -1,6 +1,6 @@
 import { Http, Options } from "./interface";
-import applicationJson from "./application/json";
-import multipartFormData from "./multipart/formData";
+import applicationJson from "./content-type/applicationJson";
+import multipartFormData from "./content-type/multipartFormData";
 
 export default function http(baseURL?: string, options?: Options): Http {
   return {
