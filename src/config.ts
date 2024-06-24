@@ -1,22 +1,23 @@
 import { CreateAxiosDefaults, AxiosRequestConfig } from "axios";
-import { ContentType } from "./interface";
+import { ContentType, Options } from "./interface";
 
 interface CreateAxiosDefaultsProps {
   baseUrl: string;
-  version: string;
-  contentType: ContentType;
+  options?: Options;
 }
 const createAxiosDefaults = ({
   baseUrl = "/api",
-  version,
-  contentType,
-}: Partial<CreateAxiosDefaultsProps>): CreateAxiosDefaults => ({
-  baseURL:
-    typeof version !== "undefined" ? [baseUrl, version].join("/") : baseUrl,
-  headers: {
-    "Content-type": contentType ?? "application/json",
-  },
-});
+  options,
+}: Partial<CreateAxiosDefaultsProps>): CreateAxiosDefaults => {
+  const { version, contentType = "application/json", charset } = options ?? {};
+  return {
+    baseURL:
+      typeof version !== "undefined" ? [baseUrl, version].join("/") : baseUrl,
+    headers: {
+      "Content-type": [contentType, charset && `charset=${charset}`].join(";"),
+    },
+  };
+};
 
 const axiosRequestConfig: AxiosRequestConfig = {
   withCredentials: true,

@@ -6,6 +6,7 @@ type ContentType =
 interface Options {
   version?: string;
   contentType?: ContentType;
+  charset?: string;
 }
 
 export type { Options, ContentType };
