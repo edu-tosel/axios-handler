@@ -1,6 +1,6 @@
 {
   "name": "@edu-tosel/axios-handler",
-  "version": "0.0.16",
+  "version": "0.0.21",
   "description": "Make using axios simpler with TypeScript",
   "scripts": {
     "build-publish": "rimraf ./dist && tsc -p tsconfig.build.json --noEmit false",
