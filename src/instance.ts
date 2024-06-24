@@ -1,13 +1,28 @@
-import Axios, { AxiosRequestConfig } from "axios";
-function axios(ContentType: string, baseURL: string) {
-  const config: AxiosRequestConfig = {
-    baseURL: baseURL || "/api",
-    headers: {
-      "Content-type": ContentType,
-    },
+import axios, { AxiosRequestConfig } from "axios";
+import { Http, Options } from "./interface";
+import { axiosRequestConfig, createAxiosDefaults } from "./config";
+
+function instance(baseUrl: string, options?: Options): Http {
+  const { version, contentType } = options ?? {};
+  const instance = axios.create(
+    createAxiosDefaults({
+      baseUrl,
+      version,
+      contentType,
+    })
+  );
+  return {
+    get: <RES>(url: string, config?: AxiosRequestConfig) =>
+      instance.get<RES>(url, { ...axiosRequestConfig, ...config }),
+    post: <REQ, RES>(url: string, data?: REQ, config?: AxiosRequestConfig) =>
+      instance.post<RES>(url, data, { ...axiosRequestConfig, ...config }),
+    put: <REQ, RES>(url: string, data?: REQ, config?: AxiosRequestConfig) =>
+      instance.put<RES>(url, data, { ...axiosRequestConfig, ...config }),
+    patch: <REQ, RES>(url: string, data?: REQ, config?: AxiosRequestConfig) =>
+      instance.patch<RES>(url, data, { ...axiosRequestConfig, ...config }),
+    delete: <RES>(url: string, data?: object) =>
+      instance.delete<RES>(url, { ...data, ...axiosRequestConfig }),
   };
-  const instance = Axios.create(config);
-  return instance;
 }
 
-export { axios };
+export default instance;

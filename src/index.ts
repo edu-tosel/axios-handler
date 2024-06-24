@@ -1,4 +1,4 @@
-import http from "./http";
+import instance from "./instance";
 import { Http, Options } from "./interface";
 
 type Handler<T> = {
@@ -13,7 +13,7 @@ function handler<T extends Record<string, string>>(obj: T): Handler<T> {
     acc[cur as keyof T] = (
       version?: string,
       options?: Omit<Options, "version">
-    ) => http(obj[cur], { version, ...options });
+    ) => instance(obj[cur], { version, ...options });
     return acc;
   }, {} as Handler<T>);
 }

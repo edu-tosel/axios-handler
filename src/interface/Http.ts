@@ -23,21 +23,6 @@ interface Http {
     url: string,
     data?: object
   ) => Promise<AxiosResponse<RES>>;
-  postFormData: <REQ = any, RES = unknown>(
-    url: string,
-    data?: REQ,
-    config?: object
-  ) => Promise<AxiosResponse<RES>>;
-  putFormData: <REQ = any, RES = unknown>(
-    url: string,
-    data?: REQ,
-    config?: object
-  ) => Promise<AxiosResponse<RES>>;
-  patchFormData: <REQ = any, RES = unknown>(
-    url: string,
-    data?: REQ,
-    config?: object
-  ) => Promise<AxiosResponse<RES>>;
 }
 
 export type { Http };

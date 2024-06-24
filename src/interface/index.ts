@@ -1,2 +1,2 @@
-export * from "./Options";
+export * from "./Property";
 export * from "./Http";
