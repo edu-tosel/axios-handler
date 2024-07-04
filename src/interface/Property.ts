@@ -1,7 +1,8 @@
 type ContentType =
   | "application/json"
   | "application/x-www-form-urlencoded"
-  | "multipart/form-data";
+  | "multipart/form-data"
+  | "text/html";
 
 interface Options {
   version?: string;
