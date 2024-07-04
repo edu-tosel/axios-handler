@@ -1,4 +1,4 @@
-type ContentType =
+type DataType =
   | "application/json"
   | "application/x-www-form-urlencoded"
   | "multipart/form-data"
@@ -6,8 +6,9 @@ type ContentType =
 
 interface Options {
   version?: string;
-  contentType?: ContentType;
+  contentType?: DataType;
+  accept?: DataType;
   charset?: string;
 }
 
-export type { Options, ContentType };
+export type { Options, DataType };

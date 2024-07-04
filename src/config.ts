@@ -1,5 +1,5 @@
 import { CreateAxiosDefaults, AxiosRequestConfig } from "axios";
-import { ContentType, Options } from "./interface";
+import { Options } from "./interface";
 
 interface CreateAxiosDefaultsProps {
   baseUrl: string;
