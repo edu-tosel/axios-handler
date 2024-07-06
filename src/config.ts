@@ -10,11 +10,12 @@ const createAxiosDefaults = ({
   options,
 }: Partial<CreateAxiosDefaultsProps>): CreateAxiosDefaults => {
   const { version, contentType = "application/json", charset } = options ?? {};
+
   return {
     baseURL:
       typeof version !== "undefined" ? [baseUrl, version].join("/") : baseUrl,
     headers: {
-      "Content-type": [contentType, charset && `charset=${charset}`].join(";"),
+      "Content-type": [contentType, charset && `; charset=${charset}`].join(""),
     },
   };
 };
