@@ -15,7 +15,6 @@ const createAxiosDefaults = ({
     charset,
     accept,
   } = options ?? {};
-
   return {
     baseURL:
       typeof version !== "undefined" ? [baseUrl, version].join("/") : baseUrl,
@@ -23,6 +22,7 @@ const createAxiosDefaults = ({
       "Content-type": [contentType, charset && `; charset=${charset}`].join(""),
       Accept: accept,
     },
+    validateStatus: (status) => status >= 200 && status < 500,
   };
 };
 
