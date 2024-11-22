@@ -2,7 +2,8 @@ type DataType =
   | "application/json"
   | "application/x-www-form-urlencoded"
   | "multipart/form-data"
-  | "text/html";
+  | "text/html"
+  | "application/octet-stream";
 
 interface Options {
   version?: string;
