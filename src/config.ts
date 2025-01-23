@@ -22,7 +22,7 @@ const createAxiosDefaults = ({
       "Content-type": [contentType, charset && `; charset=${charset}`].join(""),
       Accept: accept,
     },
-    validateStatus: (status) => status >= 200 && status < 500,
+    validateStatus: (status) => status >= 200 && status < 400,
   };
 };
 
