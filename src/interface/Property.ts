@@ -11,6 +11,7 @@ interface Options {
   contentType?: DataType;
   accept?: DataType;
   charset?: string;
+  authorization?: string;
 }
 
 export type { Options, DataType };

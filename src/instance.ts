@@ -3,7 +3,6 @@ import { Http, Options } from "./interface";
 import { axiosRequestConfig, createAxiosDefaults } from "./config";
 
 function instance(baseUrl: string, options?: Options): Http {
-  const { version, contentType, charset } = options ?? {};
   const instance = axios.create(
     createAxiosDefaults({
       baseUrl,
