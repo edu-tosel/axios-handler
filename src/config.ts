@@ -14,6 +14,7 @@ const createAxiosDefaults = ({
     contentType = "application/json",
     charset,
     accept,
+    authorization,
   } = options ?? {};
   return {
     baseURL:
@@ -21,6 +22,7 @@ const createAxiosDefaults = ({
     headers: {
       "Content-type": [contentType, charset && `; charset=${charset}`].join(""),
       Accept: accept,
+      Authorization: authorization,
     },
     validateStatus: (status) => status >= 200 && status < 400,
   };
